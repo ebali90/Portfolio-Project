@@ -1,3 +1,6 @@
+-- Data taken from https://ourworldindata.org/covid-deaths
+
+
 -- COVID19 numbers
 
 Select *
@@ -88,13 +91,15 @@ Order by 1,2
 -- Temp Table
 
 DROP TABLE IF EXISTS #VaccinatedPercentage
-CREATE TABLE #VaccinatedPercentage (
+CREATE TABLE #VaccinatedPercentage
+(
 Continent varchar(255),
 Location varchar(255),
 date datetime,
 population numeric,
 new_vaccinations numeric,
-vaccinatedppl numeric, )
+vaccinatedppl numeric, 
+)
 
 INSERT INTO #VaccinatedPercentage
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations,
